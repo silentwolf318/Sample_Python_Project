@@ -25,7 +25,7 @@ jobs:
     - name: SCA Scsn
       run: |
         echo ${{ secrets.PROD_API_KEY }}
-        curl https://raw.githubusercontent.com/CloudDefenseAI/cd/master/latest/cd-latest-mac-x64.tar.gz > /tmp/cd-latest-mac-x64.tar.gz 
+        curl https://raw.githubusercontent.com/CloudDefenseAI/cd/master/latest/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz 
         tar -C /tmp -xzf /tmp/cd-latest-mac-x64.tar.gz && chmod +x /tmp/cdefense
         /tmp/cdefense -v
         /tmp/cdefense sca --lang python --api-key ${{ secrets.PROD_API_KEY }} --project-name "Python-Github-Action-Test"
