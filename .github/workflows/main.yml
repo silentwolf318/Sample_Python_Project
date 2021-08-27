@@ -24,7 +24,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: SCA Scan
       env:
-           PROD_API_KEY=${{ secrets.PROD_API_KEY }}
+        PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
       run: |
         echo ${{ secrets.PROD_API_KEY }}
         curl https://raw.githubusercontent.com/CloudDefenseAI/cd/master/latest/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz 
