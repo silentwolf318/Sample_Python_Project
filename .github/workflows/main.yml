@@ -26,7 +26,6 @@ jobs:
       env:
         PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
       run: |
-        export PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
         echo "$PROD_API_KEY"
         curl https://raw.githubusercontent.com/CloudDefenseAI/cd/master/latest/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz 
         tar -C /tmp -xzf /tmp/cd-latest-linux-x64.tar.gz  && chmod +x /tmp/cdefense
