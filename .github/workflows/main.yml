@@ -30,4 +30,4 @@ jobs:
         PROD_API_KEY: ${{ secrets.STAGING_API_KEY }}
       with:
         project-name: Python_Github_Action_Test_1
-        api-key: "$STAGING_API_KEY"
+        api-key: 602c6be2-93b4-4d83-c67a-b282aeb35160
