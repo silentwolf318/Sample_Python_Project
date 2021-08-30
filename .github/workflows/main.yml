@@ -22,12 +22,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: SCA Scan
+        
+    - uses: actions/checkout@master
+    - name: Run CloudDefense to check for vulnerabilities
+      uses: cdefense/actions/go@master
       env:
         PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
-      run: |
-        echo "$PROD_API_KEY"
-        curl https://raw.githubusercontent.com/CloudDefenseAI/cd/master/latest/cd-latest-linux-x64.tar.gz > /tmp/cd-latest-linux-x64.tar.gz 
-        tar -C /tmp -xzf /tmp/cd-latest-linux-x64.tar.gz  && chmod +x /tmp/cdefense
-        /tmp/cdefense -v
-        /tmp/cdefense sca --lang=python --api-key="$PROD_API_KEY" --project-name="Python-Github-Action-Test"
+      with:
+        project-name: Python_Github_Action_Test_1
+        api-key: $PROD_API_KEY
